@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paisa Track Logo Generator</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+        }
+        canvas {
+            border: 1px solid #ddd;
+            margin: 20px 0;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+        .instructions {
+            max-width: 600px;
+            margin: 20px 0;
+            line-height: 1.5;
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+        h1 {
+            color: #6366f1;
+        }
+        button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #6366f1;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-family: Arial, sans-serif;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #4f46e5;
+        }
+    </style>
+</head>
+<body>
+    <h1>Paisa Track Logo Generator</h1>
+    <div class="instructions">
+        <p>This tool generates a simple logo for Paisa Track that matches the screenshot. The logo features a gradient background
+        with rounded corners and a coin symbol with the Rupee sign.</p>
+        
+        <p>To save the logo:</p>
+        <ol>
+            <li>Right-click on the canvas below</li>
+            <li>Select "Save Image As..."</li>
+            <li>Save as "paisa-track-logo.png" in the images directory</li>
+        </ol>
+    </div>
+    
+    <canvas id="logoCanvas" width="200" height="200"></canvas>
+    <button id="downloadBtn">Download Logo</button>
+    
+    <script>
+        const canvas = document.getElementById('logoCanvas');
+        const ctx = canvas.getContext('2d');
+        
+        // Clear canvas
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        
+        // Draw rounded rectangle background
+        const cornerRadius = 20;
+        const width = 160;
+        const height = 160;
+        const x = (canvas.width - width) / 2;
+        const y = (canvas.height - height) / 2;
+        
+        ctx.beginPath();
+        ctx.moveTo(x + cornerRadius, y);
+        ctx.lineTo(x + width - cornerRadius, y);
+        ctx.quadraticCurveTo(x + width, y, x + width, y + cornerRadius);
+        ctx.lineTo(x + width, y + height - cornerRadius);
+        ctx.quadraticCurveTo(x + width, y + height, x + width - cornerRadius, y + height);
+        ctx.lineTo(x + cornerRadius, y + height);
+        ctx.quadraticCurveTo(x, y + height, x, y + height - cornerRadius);
+        ctx.lineTo(x, y + cornerRadius);
+        ctx.quadraticCurveTo(x, y, x + cornerRadius, y);
+        ctx.closePath();
+        
+        // Create gradient
+        const gradient = ctx.createLinearGradient(x, y, x + width, y + height);
+        gradient.addColorStop(0, '#6366f1');  // Primary color
+        gradient.addColorStop(1, '#0ea5e9');  // Secondary color
+        
+        // Fill with gradient
+        ctx.fillStyle = gradient;
+        ctx.fill();
+        
+        // Draw outer circle (coin)
+        ctx.beginPath();
+        ctx.arc(canvas.width / 2, canvas.height / 2, 55, 0, Math.PI * 2);
+        ctx.fillStyle = '#ffffff';
+        ctx.fill();
+        
+        // Draw inner circle (coin)
+        ctx.beginPath();
+        ctx.arc(canvas.width / 2, canvas.height / 2, 48, 0, Math.PI * 2);
+        ctx.fillStyle = '#f8f9fa';
+        ctx.fill();
+        
+        // Draw ₹ symbol
+        ctx.font = 'bold 65px Arial';
+        ctx.fillStyle = '#6366f1';
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'middle';
+        ctx.fillText('₹', canvas.width / 2, canvas.height / 2);
+        
+        // Add download functionality
+        document.getElementById('downloadBtn').addEventListener('click', function() {
+            const link = document.createElement('a');
+            link.download = 'paisa-track-logo.png';
+            link.href = canvas.toDataURL('image/png');
+            link.click();
+        });
+    </script>
+</body>
+</html> 

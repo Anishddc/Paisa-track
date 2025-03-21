@@ -1,0 +1,10 @@
+# Paisa Track Website Robots.txt
+User-agent: *
+Allow: /
+
+# Disallow form success page and form processing
+Disallow: /thank-you.html
+Disallow: /success
+
+# Allow all bots to crawl the sitemap
+Sitemap: https://your-domain.com/sitemap.xml 

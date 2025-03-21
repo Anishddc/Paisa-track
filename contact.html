@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Contact Me - Paisa Track</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/pages.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">
+                    <img src="images/paisa-track-logo.png" alt="Paisa Track Logo">
+                    <h1><a href="index.html">Paisa Track</a></h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html#features">Features</a></li>
+                    <li><a href="index.html#how-it-works">How It Works</a></li>
+                    <li><a href="index.html#download">Download</a></li>
+                    <li><a href="index.html#faq">FAQ</a></li>
+                </ul>
+                <div class="mobile-menu-btn">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <section class="page-header">
+        <div class="container">
+            <h1>Contact Me</h1>
+            <p>Get in touch with Paisa Track's developer</p>
+        </div>
+    </section>
+
+    <section class="page-content">
+        <div class="container">
+            <div class="contact-layout">
+                <div class="contact-info">
+                    <div class="contact-card">
+                        <div class="icon"><i class="fas fa-envelope"></i></div>
+                        <h3>Email Me</h3>
+                        <p>For all inquiries:</p>
+                        <a href="mailto:ozric.chhetri@gmail.com">ozric.chhetri@gmail.com</a>
+                    </div>
+
+                    <div class="contact-card">
+                        <div class="icon"><i class="fas fa-map-marker-alt"></i></div>
+                        <h3>Visit Us</h3>
+                        <p>Paisa Track Office</p>
+                        <address>
+                            Bharatpur<br>
+                            Chitwan, Nepal<br>
+                        </address>
+                    </div>
+
+                    <div class="contact-card">
+                        <div class="icon"><i class="fas fa-comments"></i></div>
+                        <h3>Connect with Me</h3>
+                        <p>Follow me on social media:</p>
+                        <div class="social-links">
+                            <a href="#" class="social-link"><i class="fab fa-twitter"></i> Twitter</a>
+                            <a href="#" class="social-link"><i class="fab fa-facebook"></i> Facebook</a>
+                            <a href="#" class="social-link"><i class="fab fa-instagram"></i> Instagram</a>
+                            <a href="#" class="social-link"><i class="fab fa-github"></i> GitHub</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contact-form-section">
+                    <h2>Send Me a Message</h2>
+                    <p>I'd love to hear from you! Fill out the form below and I'll get back to you as soon as possible.</p>
+                    
+                    <form class="contact-form" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/thank-you.html">
+                        <input type="hidden" name="form-name" value="contact" />
+                        <p class="hidden" style="display:none">
+                            <label>Don't fill this out if you're human: <input name="bot-field" /></label>
+                        </p>
+
+                        <div class="form-group">
+                            <label for="name">Your Name</label>
+                            <input type="text" id="name" name="name" placeholder="Enter your name" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <select id="subject" name="subject" required>
+                                <option value="" disabled selected>Select a subject</option>
+                                <option value="general">General Inquiry</option>
+                                <option value="support">Technical Support</option>
+                                <option value="feedback">Feedback</option>
+                                <option value="partnership">Partnership</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" placeholder="Type your message here..." rows="5" required></textarea>
+                        </div>
+
+                        <div class="form-group checkbox-group">
+                            <input type="checkbox" id="newsletter" name="newsletter">
+                            <label for="newsletter">Subscribe to my newsletter for updates</label>
+                        </div>
+
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-primary">Send Message</button>
+                        </div>
+                    </form>
+
+                    <div class="form-success" style="display: none;">
+                        <div class="success-icon">
+                            <i class="fas fa-check-circle"></i>
+                        </div>
+                        <h3>Message Sent Successfully!</h3>
+                        <p>Thank you for contacting me. I'll respond to your message as soon as possible.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-preview">
+                <h3>Frequently Asked Questions</h3>
+                <div class="faq-grid">
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h4>How quickly will I receive a response?</h4>
+                            <span class="toggle-icon"></span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>I typically respond to all inquiries within 24-48 hours during business days.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h4>I have a suggestion for the app. Where should I send it?</h4>
+                            <span class="toggle-icon"></span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>You can use the contact form on this page and select "Feedback" as the subject. I welcome all suggestions for improving Paisa Track!</p>
+                        </div>
+                    </div>
+                </div>
+                <a href="index.html#faq" class="view-all-faq">View All FAQs <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <section class="map-section">
+        <div class="container">
+            <h2>Find Us</h2>
+            <div class="map-container">
+                <!-- Replace with actual map embed code -->
+                <img src="https://i.imgur.com/A7ql9xP.jpg" alt="Chitwan, Nepal Map">
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h2>Paisa Track</h2>
+                    <p>Take control of your finances effortlessly</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h3>Product</h3>
+                        <ul>
+                            <li><a href="index.html#features">Features</a></li>
+                            <li><a href="index.html#how-it-works">How It Works</a></li>
+                            <li><a href="index.html#faq">FAQ</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h3>Resources</h3>
+                        <ul>
+                            <li><a href="blog.html">Blog</a></li>
+                            <li><a href="help.html">Help Center</a></li>
+                            <li><a href="contact.html">Contact Me</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h3>Company</h3>
+                        <ul>
+                            <li><a href="about.html">About Me</a></li>
+                            <li><a href="privacy.html">Privacy Policy</a></li>
+                            <li><a href="terms.html">Terms of Service</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; <span class="copyright-year">2025</span> Paisa Track. All rights reserved.</p>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-github"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script>
+        // Form submission logic for non-JS fallback
+        // Netlify forms will handle the submission automatically
+        const contactForm = document.querySelector('.contact-form');
+        const formSuccess = document.querySelector('.form-success');
+        
+        if (contactForm) {
+            contactForm.addEventListener('submit', function(e) {
+                // Only prevent default if not handled by Netlify
+                // This is just for local testing purposes
+                if (window.location.protocol === "file:") {
+                    e.preventDefault();
+                    // Show success message
+                    contactForm.style.display = 'none';
+                    formSuccess.style.display = 'block';
+                    // Reset form
+                    contactForm.reset();
+                }
+            });
+        }
+    </script>
+</body>
+</html> 

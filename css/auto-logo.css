@@ -1,0 +1,53 @@
+/* Automatic Logo Styling */
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.logo img {
+    height: 40px;
+    width: 40px;
+    border-radius: 8px;
+    background-image: linear-gradient(135deg, #6366f1, #0ea5e9);
+    background-size: cover;
+    position: relative;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+    min-width: 40px;
+    color: white;
+    transition: transform 0.3s ease;
+}
+
+.logo img::after {
+    content: "₹";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 22px;
+    color: white;
+    z-index: 1;
+}
+
+/* Add a white circle for the coin effect */
+.logo img::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 30px;
+    height: 30px;
+    background-color: white;
+    border-radius: 50%;
+    z-index: 0;
+}
+
+.logo:hover img {
+    transform: scale(1.05);
+} 
