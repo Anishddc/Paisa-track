@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paisa Track Image Replacer Utility</title>
+    <style>
+        body {
+            font-family: 'Poppins', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f8f9fa;
+        }
+        
+        h1 {
+            color: #6366f1;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .intro {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+        
+        .image-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 20px;
+        }
+        
+        .image-card {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            padding: 20px;
+            transition: transform 0.2s;
+        }
+        
+        .image-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .image-preview {
+            border: 1px dashed #ccc;
+            padding: 10px;
+            margin-bottom: 15px;
+            text-align: center;
+            background-color: #f8f9fa;
+        }
+        
+        .image-preview img {
+            max-width: 100%;
+            max-height: 300px;
+        }
+        
+        .details {
+            margin-bottom: 15px;
+        }
+        
+        .details p {
+            margin: 5px 0;
+        }
+        
+        .locations {
+            font-size: 0.9em;
+            color: #6c757d;
+        }
+        
+        .upload-section {
+            margin-top: 15px;
+        }
+        
+        input[type="file"] {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 15px;
+        }
+        
+        button {
+            background-color: #6366f1;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        
+        button:hover {
+            background-color: #4f46e5;
+        }
+        
+        .instructions {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            margin: 30px 0;
+        }
+        
+        code {
+            background-color: #f8f9fa;
+            padding: 2px 5px;
+            border-radius: 3px;
+            font-family: monospace;
+        }
+    </style>
+</head>
+<body>
+    <h1>Paisa Track Image Replacer Utility</h1>
+    
+    <div class="intro">
+        <h2>How to Use This Tool</h2>
+        <p>This utility helps you visualize and prepare the images needed for your Paisa Track landing page. For each placeholder image:</p>
+        <ol>
+            <li>View the current placeholder and its details</li>
+            <li>Prepare a similar image with the recommended dimensions</li>
+            <li>Use the file upload to preview how your image will look</li>
+            <li>Save the prepared images to the correct locations in your project</li>
+        </ol>
+        <p><strong>Note:</strong> This is just a preview tool. You'll need to manually copy the final images to your project folder.</p>
+    </div>
+    
+    <div class="image-cards" id="imageCards">
+        <!-- Image cards will be dynamically generated here -->
+    </div>
+    
+    <div class="instructions">
+        <h2>Next Steps After Preparing Your Images</h2>
+        <ol>
+            <li>Save all your prepared images to the appropriate locations in the <code>images/</code> directory</li>
+            <li>Make sure the logo is named <code>paisa-track-logo.png</code> and placed in the <code>images/</code> directory</li>
+            <li>Create a favicon (32×32px) and save it as <code>favicon.ico</code> in the root directory</li>
+            <li>Run the <code>update-favicon.js</code> script to add favicon links to all HTML files</li>
+            <li>Commit and push your changes to GitHub</li>
+        </ol>
+        <p>Your Netlify site will automatically update with your custom images!</p>
+    </div>
+    
+    <script>
+        // Load image data from JSON file
+        fetch('image-list.json')
+            .then(response => response.json())
+            .then(data => {
+                const imageCardsContainer = document.getElementById('imageCards');
+                
+                data.placeholders.forEach(placeholder => {
+                    const card = document.createElement('div');
+                    card.className = 'image-card';
+                    
+                    // Create a unique ID for file input
+                    const inputId = 'upload-' + placeholder.description.toLowerCase().replace(/ /g, '-');
+                    
+                    card.innerHTML = `
+                        <h3>${placeholder.description}</h3>
+                        <div class="image-preview">
+                            <img src="${placeholder.currentSource}" alt="${placeholder.description}" id="preview-${inputId}">
+                        </div>
+                        <div class="details">
+                            <p><strong>Recommended size:</strong> ${placeholder.width}×${placeholder.height}px</p>
+                            <p><strong>Replacement file:</strong> ${placeholder.recommendedReplacement}</p>
+                            <p class="locations"><strong>Used in:</strong> ${placeholder.locations.join(', ')}</p>
+                        </div>
+                        <div class="upload-section">
+                            <label for="${inputId}">Try your replacement image:</label>
+                            <input type="file" id="${inputId}" accept="image/*">
+                        </div>
+                    `;
+                    
+                    imageCardsContainer.appendChild(card);
+                    
+                    // Add event listener for file input
+                    setTimeout(() => {
+                        const fileInput = document.getElementById(inputId);
+                        if (fileInput) {
+                            fileInput.addEventListener('change', function(e) {
+                                const file = e.target.files[0];
+                                if (file) {
+                                    const reader = new FileReader();
+                                    reader.onload = function(event) {
+                                        const img = document.getElementById('preview-' + inputId);
+                                        img.src = event.target.result;
+                                    }
+                                    reader.readAsDataURL(file);
+                                }
+                            });
+                        }
+                    }, 100);
+                });
+            })
+            .catch(error => {
+                console.error('Error loading image data:', error);
+                document.getElementById('imageCards').innerHTML = '<p>Error loading image data. Please make sure image-list.json is in the same directory.</p>';
+            });
+    </script>
+</body>
+</html> 

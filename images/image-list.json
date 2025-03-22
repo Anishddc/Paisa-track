@@ -1,0 +1,60 @@
+{
+  "placeholders": [
+    {
+      "description": "Main App Screenshot",
+      "currentSource": "https://placehold.co/600x800/6366f1/ffffff?text=Paisa+Track+App",
+      "recommendedReplacement": "images/app-mockup.png",
+      "width": 600,
+      "height": 800,
+      "locations": ["index.html (hero section)"]
+    },
+    {
+      "description": "App Setup Screenshot",
+      "currentSource": "https://placehold.co/300x600/0ea5e9/ffffff?text=Setup+Screen",
+      "recommendedReplacement": "images/setup-screenshot.png",
+      "width": 300,
+      "height": 600,
+      "locations": ["index.html (how it works section)"]
+    },
+    {
+      "description": "Expense Tracking Screenshot",
+      "currentSource": "https://placehold.co/300x600/0ea5e9/ffffff?text=Tracking+Screen",
+      "recommendedReplacement": "images/tracking-screenshot.png",
+      "width": 300,
+      "height": 600,
+      "locations": ["index.html (how it works section)"]
+    },
+    {
+      "description": "Reports Screenshot",
+      "currentSource": "https://placehold.co/300x600/0ea5e9/ffffff?text=Reports+Screen",
+      "recommendedReplacement": "images/reports-screenshot.png",
+      "width": 300,
+      "height": 600,
+      "locations": ["index.html (how it works section)"]
+    },
+    {
+      "description": "Multi-device Mockup",
+      "currentSource": "https://placehold.co/800x500/6366f1/ffffff?text=Paisa+Track+on+Multiple+Devices",
+      "recommendedReplacement": "images/device-mockups.png",
+      "width": 800,
+      "height": 500,
+      "locations": ["index.html (download section)"]
+    },
+    {
+      "description": "Logo",
+      "currentSource": "images/paisa-track-logo.png",
+      "recommendedReplacement": "images/paisa-track-logo.png",
+      "width": 160,
+      "height": 160,
+      "locations": ["All pages in header"]
+    },
+    {
+      "description": "Favicon",
+      "currentSource": "favicon.ico",
+      "recommendedReplacement": "favicon.ico",
+      "width": 32,
+      "height": 32,
+      "locations": ["All pages (browser tab)"]
+    }
+  ]
+} 
